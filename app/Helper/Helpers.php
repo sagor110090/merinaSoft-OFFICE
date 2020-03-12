@@ -18,21 +18,21 @@ class Helpers
     public function isAdmin()
     {
         return DB::table('users')->where('email',Auth::User()->email)->where('role','admin')->first();
-        
+
     }
     public function isUser()
     {
         return DB::table('users')->where('email',Auth::User()->email)->where('role','user')->first();
-        
+
     }
     public function findAll($tableName)
     {
         return DB::table($tableName)->get();
     }
-    public function schoolInfo()
-    {
-        return DB::table('schools')->first();
-    }
+    // public function schoolInfo()
+    // {
+    //     return DB::table('schools')->first();
+    // }
 
     public function GetOptions($object, $column, $selected = 0, $id = 'id')
     {
@@ -54,9 +54,9 @@ class Helpers
         $studentAttendance = StudentAttendance::where('created_at','like',date('Y-m-d').'%')->first();
         return $studentAttendance;
     }
-    
+
 }
-   
+
 
 
 ?>

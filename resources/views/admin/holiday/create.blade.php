@@ -11,7 +11,7 @@
                     <h4 class="card-title">Create New Holiday</h4>
                 </div>
             </div>
-            
+
 
             @if ($errors->any())
             <ul class="alert alert-danger">

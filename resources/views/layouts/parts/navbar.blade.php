@@ -7,7 +7,7 @@
           <!-- ============================================================== -->
           <!-- Logo -->
           <!-- ============================================================== -->
-          <a class="navbar-brand" href="{{ asset('/') }}">
+          {{-- <a class="navbar-brand" href="{{ asset('/') }}">
               <!-- Logo icon -->
               <b class="logo-icon p-l-10">
 
@@ -21,8 +21,8 @@
                   <img src="{{(Helpers::schoolInfo()->logo2 != null) ? Storage::url(Helpers::schoolInfo()->logo2)  :  asset('/').'assets/images/logo-text.png'}}"style="height: 44px;width: 174px" alt="homepage" class="light-logo" />
 
               </span>
-            
-          </a>
+
+          </a> --}}
           <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
               data-toggle="collapse" data-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
@@ -42,7 +42,7 @@
               <!-- ============================================================== -->
           </ul>
           <ul class="navbar-nav float-right">
-   
+
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href=""
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
