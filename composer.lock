@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af6cc3c7502db3369f968557b99b8ea9",
+    "content-hash": "57fd8d850025f6fa2e83418ac76f2685",
     "packages": [
         {
             "name": "brian2694/laravel-toastr",
@@ -816,6 +816,59 @@
             "time": "2020-03-03T13:14:27+00:00"
         },
         {
+            "name": "laravel/helpers",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/helpers.git",
+                "reference": "1f978fc5dad9f7f906b18242c654252615201de4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/helpers/zipball/1f978fc5dad9f7f906b18242c654252615201de4",
+                "reference": "1f978fc5dad9f7f906b18242c654252615201de4",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.8.0|^6.0|^7.0",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                },
+                {
+                    "name": "Dries Vints",
+                    "email": "dries.vints@gmail.com"
+                }
+            ],
+            "description": "Provides backwards compatibility for helpers in the latest Laravel release.",
+            "keywords": [
+                "helpers",
+                "laravel"
+            ],
+            "time": "2020-03-03T13:52:16+00:00"
+        },
+        {
             "name": "laravel/tinker",
             "version": "v2.2.0",
             "source": {
@@ -1034,6 +1087,16 @@
                 "s3",
                 "sftp",
                 "storage"
+            ],
+            "funding": [
+                {
+                    "url": "https://github.com/frankdejonge",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/league/flysystem",
+                    "type": "tidelift"
+                }
             ],
             "time": "2020-03-08T18:53:20+00:00"
         },
@@ -3274,6 +3337,59 @@
                 "dump"
             ],
             "time": "2020-02-24T13:10:00+00:00"
+        },
+        {
+            "name": "te7a-houdini/laravel-trix",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Te7a-Houdini/laravel-trix.git",
+                "reference": "495c4637eafc549a3933f9d9d11f4703e9b75967"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Te7a-Houdini/laravel-trix/zipball/495c4637eafc549a3933f9d9d11f4703e9b75967",
+                "reference": "495c4637eafc549a3933f9d9d11f4703e9b75967",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.8.0|~6.0|~7.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.5|~4.0|~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Te7aHoudini\\LaravelTrix\\LaravelTrixServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Te7aHoudini\\LaravelTrix\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ahmed Abd El Ftah",
+                    "email": "ahmedabdelftah95165@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "trix editor for laravel inspired by ActionText for rails",
+            "homepage": "https://github.com/te7ahoudini/laravel-trix",
+            "keywords": [
+                "laravel-trix",
+                "te7a-houdini"
+            ],
+            "time": "2020-03-06T15:33:35+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -5561,5 +5677,6 @@
     "platform": {
         "php": "^7.2"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

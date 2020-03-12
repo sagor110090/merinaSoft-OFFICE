@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth']], function () {
 
 });
 
-    Route::get('/', 'HomeController@home');
+    Route::get('/', 'FrontEndController@home');
+    Route::get('/service-details/{slug}', 'FrontEndController@serviceDetails');
 
 

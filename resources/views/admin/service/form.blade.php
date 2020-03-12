@@ -3,9 +3,18 @@
     <input class="form-control" name="header" type="text" id="header" value="{{ isset($service->header) ? $service->header : ''}}" required>
     {!! $errors->first('header', '<p class="help-block">:message</p>') !!}
 </div>
+<div class="form-group {{ $errors->has('shortDescription') ? 'has-error' : ''}}">
+    <label for="shortDescription" class="control-label">{{ 'Short Description' }}</label>
+    <textarea name="shortDescription"  class="form-control" cols="30" rows="10" required>
+        {{ isset($service->shortDescription) ? $service->shortDescription : ''}}
+    </textarea>
+    {!! $errors->first('shortDescription', '<p class="help-block">:message</p>') !!}
+</div>
 <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
-    <label for="description" class="control-label">{{ 'description' }}</label>
-    <input class="form-control" name="description" type="text" id="description" value="{{ isset($service->description) ? $service->description : ''}}" required>
+    <label for="description" class="control-label">{{ 'Description' }}</label>
+    <textarea name="description" id="editor"   cols="30" rows="10" required>
+        {{ isset($service->description) ? $service->description : ''}}
+    </textarea>
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('image') ? 'has-error' : ''}}">

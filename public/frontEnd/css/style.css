@@ -8946,6 +8946,7 @@ img{
 
 .service-detail{
 	position:relative;
+	width: 100%;
 }
 
 .service-detail .inner-box{

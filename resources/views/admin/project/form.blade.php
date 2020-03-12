@@ -22,7 +22,11 @@
 </div> --}}
 <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
     <label for="description" class="control-label">{{ 'Description' }}</label>
-    <input class="form-control" name="description" type="text" id="description" value="{{ isset($project->description) ? $project->description : ''}}" required>
+
+    <textarea name="description" id="editor"   cols="30" rows="10" required>
+        {{ isset($project->description) ? $project->description : ''}}
+    </textarea>
+    {{-- <input class="form-control" name="description" type="text" id="description" value="{{ isset($project->description) ? $project->description : ''}}" required> --}}
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('client_name') ? 'has-error' : ''}}">

@@ -37,7 +37,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->header }}</td>
-                            <td>{{ $item->description }}</td>
+                            <td>{{ Helpers::limit_text($item->shortDescription, 20) }}</td>
                             <td>
 
                                 <a href="{{ url('/admin/service/' . $item->id . '/edit') }}" title="Edit Class"><button

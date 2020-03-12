@@ -23,6 +23,8 @@
     <link href="{{ asset('css/image.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+    {{-- //editer  --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
 
     @stack('css')
 </head>
@@ -49,7 +51,11 @@
     </div>
     <script src="{{ asset('/') }}js/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ asset('/') }}js/popper.min.js"></script>
+    {{-- <script src="{{ asset('/') }}js/popper.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+
     <script src="{{ asset('/') }}js/bootstrap.min.js"></script>
     <!--Menu sidebar -->
     <script src="{{ asset('/') }}js/sidebarmenu.js"></script>
@@ -75,6 +81,14 @@
     @include('layouts.parts.schedule')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @include('layouts.parts.alert')
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
     <script src="{{ asset('/') }}js/custom.js"></script>
 </body>
 

@@ -185,3 +185,6 @@ input[type="checkbox"]:checked + label:before {
     content: "\2713";
     text-align: center;
 }
+.ck-editor__editable {
+    min-height: 500px;
+}

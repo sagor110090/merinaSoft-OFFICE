@@ -5,14 +5,14 @@
     <section class="main-slider">
     	
         <div class="main-slider-carousel owl-carousel owl-theme">
-            
-            <div class="slide" style="background-image:url(images/main-slider/image-1.jpg)">
+            @foreach (Helpers::findAll('slider') as $item)
+			<div class="slide" style="background-image:url({{Storage::url($item->image)}})">
                 <div class="auto-container">
 					
 					<!-- Content boxed -->
 					<div class="content-boxed">
-						<div class="title">Welcome to Solva Agency</div>
-						<h1>Better Solution <br> At Your Fingertips.</h1>
+						<div class="title">{{$item->slider_large_title}}</div>
+						<h1>{{$item->slider_small_title}}</h1>
 						<div class="link-box clearfix">
 							<a href="{{ asset('fronted') }}/https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image video-box"><span class="fa fa-play"><i class="ripple"></i></span></a>
 							<a href="{{ asset('fronted') }}/services.html" class="theme-btn btn-style-three"><span class="txt">View Service</span></a>
@@ -21,8 +21,10 @@
 					
                 </div>
             </div>
+			@endforeach
             
-            <div class="slide" style="background-image:url(images/main-slider/image-1.jpg)">
+            
+            {{-- <div class="slide" style="background-image:url(images/main-slider/image-1.jpg)">
                 <div class="auto-container">
 					<!-- Content boxed -->
 					<div class="content-boxed">
@@ -48,7 +50,7 @@
 						</div>
 					</div>
                 </div>
-            </div>
+            </div> --}}
 			
         </div>
 		
@@ -62,7 +64,7 @@
 			<div class="inner-container">
 				
 				<div class="three-item-carousel owl-carousel owl-theme">
-					
+					@foreach (Helpers::findAll('service') as $item)
 					<!-- Service Block -->
 					<div class="service-block">
 						<div class="inner-box">
@@ -70,134 +72,14 @@
 								<div class="icon-box">
 									<span class="icon flaticon-pie-chart-3"></span>
 								</div>
-								<h5><a href="{{ asset('fronted') }}/services-single.html">Business Plan</a></h5>
-								<div class="text">Sed quia magni dolores eos qui ratione voluptatem sequi nesciunt eque porro.</div>
+							<h5><a href="{{ asset('fronted') }}/services-single.html">{{$item->header}}</a></h5>
+								<div class="text">{{ Helpers::limit_text($item->shortDescription, 20) }}</div>
 							</div>
 							<div class="big-icon flaticon-pie-chart-3"></div>
-							<a href="{{ asset('fronted') }}/services-single.html" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
+							<a href="{{ url('/service-details', [$item->slug]) }}" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
 						</div>
 					</div>
-					
-					<!-- Service Block -->
-					<div class="service-block">
-						<div class="inner-box">
-							<div class="content-box">
-								<div class="icon-box">
-									<span class="icon flaticon-search-engine"></span>
-								</div>
-								<h5><a href="{{ asset('fronted') }}/services-single.html">Program Management</a></h5>
-								<div class="text">Sed quia magni dolores eos qui ratione voluptatem sequi nesciunt eque porro.</div>
-							</div>
-							<div class="big-icon flaticon-search-engine"></div>
-							<a href="{{ asset('fronted') }}/services-single.html" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
-						</div>
-					</div>
-					
-					<!-- Service Block -->
-					<div class="service-block">
-						<div class="inner-box">
-							<div class="content-box">
-								<div class="icon-box">
-									<span class="icon flaticon-growth"></span>
-								</div>
-								<h5><a href="{{ asset('fronted') }}/services-single.html">Startegy Business</a></h5>
-								<div class="text">Sed quia magni dolores eos qui ratione voluptatem sequi nesciunt eque porro.</div>
-							</div>
-							<div class="big-icon flaticon-growth"></div>
-							<a href="{{ asset('fronted') }}/services-single.html" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
-						</div>
-					</div>
-					
-					<!-- Service Block -->
-					<div class="service-block">
-						<div class="inner-box">
-							<div class="content-box">
-								<div class="icon-box">
-									<span class="icon flaticon-pie-chart-3"></span>
-								</div>
-								<h5><a href="{{ asset('fronted') }}/services-single.html">Business Plan</a></h5>
-								<div class="text">Sed quia magni dolores eos qui ratione voluptatem sequi nesciunt eque porro.</div>
-							</div>
-							<div class="big-icon flaticon-pie-chart-3"></div>
-							<a href="{{ asset('fronted') }}/services-single.html" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
-						</div>
-					</div>
-					
-					<!-- Service Block -->
-					<div class="service-block">
-						<div class="inner-box">
-							<div class="content-box">
-								<div class="icon-box">
-									<span class="icon flaticon-search-engine"></span>
-								</div>
-								<h5><a href="{{ asset('fronted') }}/services-single.html">Program Management</a></h5>
-								<div class="text">Sed quia magni dolores eos qui ratione voluptatem sequi nesciunt eque porro.</div>
-							</div>
-							<div class="big-icon flaticon-search-engine"></div>
-							<a href="{{ asset('fronted') }}/services-single.html" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
-						</div>
-					</div>
-					
-					<!-- Service Block -->
-					<div class="service-block">
-						<div class="inner-box">
-							<div class="content-box">
-								<div class="icon-box">
-									<span class="icon flaticon-growth"></span>
-								</div>
-								<h5><a href="{{ asset('fronted') }}/services-single.html">Startegy Business</a></h5>
-								<div class="text">Sed quia magni dolores eos qui ratione voluptatem sequi nesciunt eque porro.</div>
-							</div>
-							<div class="big-icon flaticon-growth"></div>
-							<a href="{{ asset('fronted') }}/services-single.html" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
-						</div>
-					</div>
-					
-					<!-- Service Block -->
-					<div class="service-block">
-						<div class="inner-box">
-							<div class="content-box">
-								<div class="icon-box">
-									<span class="icon flaticon-pie-chart-3"></span>
-								</div>
-								<h5><a href="{{ asset('fronted') }}/services-single.html">Business Plan</a></h5>
-								<div class="text">Sed quia magni dolores eos qui ratione voluptatem sequi nesciunt eque porro.</div>
-							</div>
-							<div class="big-icon flaticon-pie-chart-3"></div>
-							<a href="{{ asset('fronted') }}/services-single.html" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
-						</div>
-					</div>
-					
-					<!-- Service Block -->
-					<div class="service-block">
-						<div class="inner-box">
-							<div class="content-box">
-								<div class="icon-box">
-									<span class="icon flaticon-search-engine"></span>
-								</div>
-								<h5><a href="{{ asset('fronted') }}/services-single.html">Program Management</a></h5>
-								<div class="text">Sed quia magni dolores eos qui ratione voluptatem sequi nesciunt eque porro.</div>
-							</div>
-							<div class="big-icon flaticon-search-engine"></div>
-							<a href="{{ asset('fronted') }}/services-single.html" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
-						</div>
-					</div>
-					
-					<!-- Service Block -->
-					<div class="service-block">
-						<div class="inner-box">
-							<div class="content-box">
-								<div class="icon-box">
-									<span class="icon flaticon-growth"></span>
-								</div>
-								<h5><a href="{{ asset('fronted') }}/services-single.html">Startegy Business</a></h5>
-								<div class="text">Sed quia magni dolores eos qui ratione voluptatem sequi nesciunt eque porro.</div>
-							</div>
-							<div class="big-icon flaticon-growth"></div>
-							<a href="{{ asset('fronted') }}/services-single.html" class="arrow-box"><span class="icon flaticon-arrow-pointing-to-right"></span></a>
-						</div>
-					</div>
-					
+					@endforeach
 				</div>
 				
 			</div>

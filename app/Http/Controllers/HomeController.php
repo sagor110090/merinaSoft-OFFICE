@@ -21,10 +21,7 @@ class HomeController extends Controller
     {
         return view('dashboard');
     }
-    public function home()
-    {
-        return view('frontEnd.home');
-    }
+
     public function sidebar()
     {
         $value = Session::get('key');
