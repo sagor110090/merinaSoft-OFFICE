@@ -89,6 +89,74 @@
                                 </span></a></li>
                     </ul>
                 </li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                            class="hide-menu">Contact <span
+                                class="badge badge-danger">{{Helpers::countTblData('message', 'status', null)}}</span></span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        @if (Helpers::isAdmin())
+                        <li class="sidebar-item"><a href="{{ url('/admin/contact') }}" class="sidebar-link"><i
+                                    class="mdi mdi-note-outline"></i><span class="hide-menu">Contacts
+                                </span></a></li>
+                        @endif
+                        <li class="sidebar-item"><a href="{{ url('/admin/message') }}" class="sidebar-link"><i
+                                    class="mdi mdi-note-plus"></i><span class="hide-menu"> Messages <span
+                                        class="badge badge-danger">{{Helpers::countTblData('message', 'status', null)}}</span>
+                                </span></a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                            class="hide-menu">About Us</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        <li class="sidebar-item"><a href="{{ url('/admin/about') }}" class="sidebar-link"><i
+                                    class="mdi mdi-note-plus"></i><span class="hide-menu"> About Us
+                                </span></a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                            class="hide-menu">Client</span></a>
+                    <ul aria-expanded="false" class="collapse  first-level">
+                        @if (Helpers::isAdmin())
+                        <li class="sidebar-item"><a href="{{ url('/admin/client/create') }}" class="sidebar-link"><i
+                                    class="mdi mdi-note-outline"></i><span class="hide-menu">Add Client
+                                </span></a></li>
+                        @endif
+                        <li class="sidebar-item"><a href="{{ url('/admin/client') }}" class="sidebar-link"><i
+                                    class="mdi mdi-note-plus"></i><span class="hide-menu"> Client List
+                                </span></a></li>
+                    </ul>
+                </li>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                    href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                        class="hide-menu">Newsletter</span></a>
+                <ul aria-expanded="false" class="collapse  first-level">
+                    <li class="sidebar-item"><a href="{{ url('/admin/newsletter') }}" class="sidebar-link"><i
+                                class="mdi mdi-note-plus"></i><span class="hide-menu"> Newsletter List
+                            </span></a></li>
+                </ul>
+            </li>
+            <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
+                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                    class="hide-menu">Blog</span></a>
+            <ul aria-expanded="false" class="collapse  first-level">
+                @if (Helpers::isAdmin())
+                <li class="sidebar-item"><a href="{{ url('/admin/blog/create') }}" class="sidebar-link"><i
+                            class="mdi mdi-note-outline"></i><span class="hide-menu">Add Blog
+                        </span></a></li>
+                <li class="sidebar-item"><a href="{{ url('/admin/blog-category/create') }}" class="sidebar-link"><i
+                    class="mdi mdi-note-outline"></i><span class="hide-menu">Add Blog Catagory
+                </span></a></li>
+                @endif
+                <li class="sidebar-item"><a href="{{ url('/admin/blog') }}" class="sidebar-link"><i
+                            class="mdi mdi-note-plus"></i><span class="hide-menu"> Blog List
+                        </span></a></li>
+                <li class="sidebar-item"><a href="{{ url('/admin/blog-category') }}" class="sidebar-link"><i
+                    class="mdi mdi-note-plus"></i><span class="hide-menu"> Blog Catagory List
+                </span></a></li>
+            </ul>
+        </li>
                 {{--<li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
                         href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-developer-board"></i><span
                             class="hide-menu">Leave</span></a>

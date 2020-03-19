@@ -33,7 +33,9 @@
         <div class="avatar-edit">
             <input type='file' id="imageUpload" name="image" accept=".png, .jpg, .jpeg" >
             <input type='text'  name="old_image" value="{{ isset($our_team->image) ? $our_team->image : ''}}" />
-            <label for="imageUpload"></label>
+            <label for="imageUpload">
+                <label for="image" class="control-label img_lavel">{{ "Upload Mamber's Picture" }}</label>
+            </label>
         </div>
         <div class="avatar-preview">
         <div id="imagePreview" style="background-image: url({{(isset($our_team->image) ? Storage::url($our_team->image) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">

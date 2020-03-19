@@ -15,9 +15,9 @@ class CreateObjectiveTable extends Migration
     {
         Schema::create('objective', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('header');
-            $table->string('description');
-            $table->string('fcq')->nullable();
+            $table->string('header')->nullable();
+            $table->longtext('description')->nullable();
+            $table->string('faq')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
         });

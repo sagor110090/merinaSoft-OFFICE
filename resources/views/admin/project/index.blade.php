@@ -41,7 +41,7 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->header }}</td>
-                            <td>{{ $item->description }}</td>
+                            <td>{{Helpers::limit_text($item->description, 20)}}</td>
                             <td>{{ $item->client_name }}</td>
                             <td>{{ $item->location }}</td>
                             <td>{{ $item->year }}</td>

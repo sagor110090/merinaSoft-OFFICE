@@ -40,7 +40,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'header' => 'required',
+            'header' => 'required|unique:project',
             'description' => 'required',
             'client_name' => 'required',
             'location' => 'required',
@@ -54,6 +54,7 @@ class ProjectController extends Controller
         if ($request->hasFile('thumbnail')) {
             $requestData['thumbnail'] = $request->file('thumbnail')->store('uploads', 'public');
         }
+        $requestData['slug'] = str_slug($request->header);
         Project::create($requestData);
         Toastr::success('Class added!', 'Done', ["positionClass" => "toast-top-right"]);
         return redirect('admin/project/create');
@@ -116,6 +117,7 @@ class ProjectController extends Controller
         if ($request->hasFile('thumbnail')) {
             $requestData['thumbnail'] = $request->file('thumbnail')->store('uploads', 'public');
         }
+        $requestData['slug'] = str_slug($request->header);
         $project->update($requestData);
         // dd($request->hasFile('old_image'));
 

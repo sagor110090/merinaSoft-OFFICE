@@ -12,7 +12,7 @@
                             <h4 class="card-title">Create Our Team</h4>
                         </div>
                     </div>
-                    <a href="#" title="Back"><button
+                    <a href="javascript:history.back()" title="Back"><button
                             class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i>
                             Back</button></a>
                     <br />

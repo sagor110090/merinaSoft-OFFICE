@@ -11,6 +11,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('/') }}assets/images/favicon.png">
     {{-- <title>{{Helpers::schoolInfo()->name}} Merina Soft Office | {{$pageTitle}} </title> --}}
     <!-- Custom CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -23,6 +24,8 @@
     <link href="{{ asset('css/image.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.1/css/buttons.dataTables.min.css">
+    {{-- //editer  --}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/17.0.0/classic/ckeditor.js"></script>
 
 
     @stack('css')
@@ -50,7 +53,11 @@
     </div>
     <script src="{{ asset('/') }}js/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ asset('/') }}js/popper.min.js"></script>
+    {{-- <script src="{{ asset('/') }}js/popper.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+
     <script src="{{ asset('/') }}js/bootstrap.min.js"></script>
     <!--Menu sidebar -->
     <script src="{{ asset('/') }}js/sidebarmenu.js"></script>
@@ -76,6 +83,37 @@
     @include('layouts.parts.schedule')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @include('layouts.parts.alert')
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <!--Google Map APi Key-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCykRLEzpOdEoBqafqgeaJwgjxd3cT1bM8"></script>
+    <script src="js/map-script.js"></script>
+    <!--End Google Map APi-->
+
+    <script>
+        $(document).ready(function(){
+            $('input.timepicker').timepicker({
+                timeFormat: 'h:mm p',
+            interval: 60,
+            minTime: '10',
+            maxTime: '6:00pm',
+            // defaultTime: '11',
+            startTime: '10:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+            });
+        });
+    </script>
+
+
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
     <script src="{{ asset('/') }}js/custom.js"></script>
 </body>
 

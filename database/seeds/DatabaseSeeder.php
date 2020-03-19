@@ -9,11 +9,14 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->truncate();
         DB::table('objective')->truncate();
+        DB::table('contact')->truncate();
         // DB::table('schools')->truncate();
         $this->call([
             UsersTableSeeder::class,
             // schoolTableSeeder::class
             ObjectiveTableSeeder::class,
+            ContactTableSeeder::class,
+            AboutTableSeeder::class,
             ]);
     }
 }

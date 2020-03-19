@@ -16,7 +16,7 @@ class Project extends Model
     protected $primaryKey = 'id';
 
 
-    protected $fillable = ['category_id','header', 'description','client_name', 'location','year', 'value','thumbnail','image'];
+    protected $guarded=['old_thumbnail','old_image'];
 
     public function category()
     {

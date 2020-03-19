@@ -18,7 +18,6 @@ class ObjectiveController extends Controller
     public function index()
     {
         $objective = Objective::all();
-        // dd($objective->id);
         return view('admin.objective.index', compact('objective'));
     }
 

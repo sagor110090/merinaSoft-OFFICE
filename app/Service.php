@@ -16,5 +16,6 @@ class Service extends Model
     protected $primaryKey = 'id';
 
 
-    protected $fillable = ['header', 'description','image'];
+    // protected $fillable = ['header', 'description','image'];
+    protected $guarded=['old_image'];
 }

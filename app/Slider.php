@@ -16,7 +16,7 @@ class Slider extends Model
     protected $primaryKey = 'id';
 
 
-    protected $fillable = ['slider_large_title', 'slider_small_title','image'];
+    protected $fillable = ['slider_large_title', 'slider_small_title','video_link','image'];
 
 
 }

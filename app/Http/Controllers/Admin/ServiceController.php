@@ -40,13 +40,14 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'header' => 'required',
+            'header' => 'required|unique:service',
             'description' => 'required',
 		]);
         $requestData = $request->all();
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
         }
+        $requestData['slug'] = str_slug($request->header);
         Service::create($requestData);
         Toastr::success('Class added!', 'Done', ["positionClass" => "toast-top-right"]);
         return redirect('admin/service/create');
@@ -99,6 +100,7 @@ class ServiceController extends Controller
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
         }
+        $requestData['slug'] = str_slug($request->header);
         $service->update($requestData);
 
         Toastr::success('Class updated!', 'Done', ["positionClass" => "toast-top-right"]);

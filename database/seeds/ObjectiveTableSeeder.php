@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class ObjectiveTableSeeder extends Seeder
 {
@@ -14,7 +17,7 @@ class ObjectiveTableSeeder extends Seeder
         DB::table('objective')->insert([
             'header' => 'Our Objective',
             'description' => 'Develop web application with Laravel',
-            'fcq' => 'Ask any Query: 01849609902',
+            'faq' => 'Ask any Query: 01849609902',
             'image' => 'https://unsplash.com/photos/bXq8pVfP-fY',
         ]);
     }

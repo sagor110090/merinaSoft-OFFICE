@@ -16,5 +16,5 @@ class Objective extends Model
     protected $primaryKey = 'id';
 
 
-    protected $fillable = ['header', 'description','fcq', 'image'];
+    protected $fillable = ['header', 'description','faq', 'image'];
 }

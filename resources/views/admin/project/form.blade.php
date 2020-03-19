@@ -22,7 +22,11 @@
 </div> --}}
 <div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
     <label for="description" class="control-label">{{ 'Description' }}</label>
-    <input class="form-control" name="description" type="text" id="description" value="{{ isset($project->description) ? $project->description : ''}}" required>
+
+    <textarea name="description" id="editor"   cols="30" rows="10" required>
+        {{ isset($project->description) ? $project->description : ''}}
+    </textarea>
+    {{-- <input class="form-control" name="description" type="text" id="description" value="{{ isset($project->description) ? $project->description : ''}}" required> --}}
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('client_name') ? 'has-error' : ''}}">
@@ -46,12 +50,20 @@
     {!! $errors->first('year', '<p class="help-block">:message</p>') !!}
 </div>
 
+<div class="form-group {{ $errors->has('link') ? 'has-error' : ''}}">
+    <label for="link" class="control-label">{{ 'link' }}</label>
+    <input class="form-control" name="link" type="text" id="link" value="{{ isset($project->link) ? $project->link : ''}}" required>
+    {!! $errors->first('year', '<p class="help-block">:message</p>') !!}
+</div>
+
 <div class="form-group {{ $errors->has('thumbnail') ? 'has-error' : ''}}">
     <div class="avatar-upload">
         <div class="avatar-edit">
             <input type='file' id="thumbnailUpload" name="thumbnail" accept=".png, .jpg, .jpeg" >
             <input type='text'  name="old_thumbnail" value="{{ isset($project->thumbnail) ? $project->thumbnail : ''}}" />
-            <label for="thumbnailUpload"></label>
+            <label for="thumbnailUpload">
+                <label for="thumbnail" class="control-label img_lavel">{{ "Upload Thumbnail" }}</label>
+            </label>
         </div>
         <div class="avatar-preview">
         <div id="thumbnailPreview" style="background-image: url({{(isset($project->thumbnail) ? Storage::url($project->thumbnail) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">
@@ -64,7 +76,9 @@
         <div class="avatar-edit">
             <input type='file' id="imageUpload" name="image" accept=".png, .jpg, .jpeg" >
             <input type='text'  name="old_image" value="{{ isset($project->image) ? $project->image : ''}}" />
-            <label for="imageUpload"></label>
+            <label for="imageUpload">
+                <label for="image" class="control-label img_lavel">{{ "Upload Project Image" }}</label>
+            </label>
         </div>
         <div class="avatar-preview">
         <div id="imagePreview" style="background-image: url({{(isset($project->image) ? Storage::url($project->image) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">

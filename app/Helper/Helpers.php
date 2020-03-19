@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Auth;
 use App\StudentAttendance;
+use App\BlogCategory;
 
 
 
@@ -28,6 +29,21 @@ class Helpers
     public function findAll($tableName)
     {
         return DB::table($tableName)->get();
+    }
+    public function findFirst($tableName)
+    {
+        return DB::table($tableName)->first();
+    }
+    public function countTblData($tableName, $column, $data)
+    {
+        $allData = DB::table($tableName)->where($column,$data)->get();
+        if ($allData->count()>0) {
+            return $allData->count();
+        }
+    }
+    public function blogCategory()
+    {
+        return BlogCategory::all();
     }
     // public function schoolInfo()
     // {
@@ -53,6 +69,16 @@ class Helpers
     {
         $studentAttendance = StudentAttendance::where('created_at','like',date('Y-m-d').'%')->first();
         return $studentAttendance;
+    }
+
+    public function limit_text($text, $limit)
+    {
+        if (str_word_count($text, 0) > $limit) {
+            $words = str_word_count($text, 2);
+            $pos = array_keys($words);
+            $text = substr($text, 0, $pos[$limit]) . '...';
+        }
+        return $text;
     }
 
 }

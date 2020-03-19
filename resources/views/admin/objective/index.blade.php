@@ -30,7 +30,7 @@
                             <th width='30'>#</th>
                             <th>Header</th>
                             <th>Description</th>
-                            <th>FCQ</th>
+                            <th>FAQ's</th>
                             <th width='300'>{{ __('Actions') }}</th>
                         </tr>
                     </thead>
@@ -39,8 +39,8 @@
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $item->header }}</td>
-                            <td>{{ $item->description }}</td>
-                            <td>{{ $item->fcq }}</td>
+                            <td>{{Helpers::limit_text($item->description, 20)}}</td>
+                            <td>{{ $item->faq }}</td>
                             <td>
 
                                 <a href="{{ url('/admin/objective/' . $item->id . '/edit') }}"

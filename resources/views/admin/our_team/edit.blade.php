@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-header">Edit Our Team</div>
         <div class="card-body">
-            <a href="#" title="Back"><button class="btn btn-warning btn-sm"><i
+            <a href="javascript:history.back()" title="Back"><button class="btn btn-warning btn-sm"><i
                         class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
             <br />
             <br />

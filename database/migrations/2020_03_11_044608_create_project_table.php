@@ -16,12 +16,14 @@ class CreateProjectTable extends Migration
         Schema::create('project', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('category_id')->unsigned();
-            $table->string('header');
-            $table->string('description');
-            $table->string('client_name');
-            $table->string('location');
-            $table->string('year');
-            $table->string('value');
+            $table->string('slug');
+            $table->string('header')->nullable;
+            $table->longtext('description')->nullable;
+            $table->string('client_name')->nullable;
+            $table->string('location')->nullable;
+            $table->string('year')->nullable;
+            $table->string('value')->nullable;
+            $table->string('link')->nullable;
             $table->string('thumbnail')->nullable();
             $table->string('image')->nullable();
             $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade')->onUpdate('cascade');
