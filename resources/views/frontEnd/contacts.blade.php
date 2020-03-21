@@ -32,7 +32,7 @@
                     <div class="sec-title">
                         <div class="title">Get in Touch</div>
                         <h2>{{$item->header}}</h2>
-                        <div class="text">{{$item->body_text}}</div>
+                        <div class="text">{!!$item->body_text!!}</div>
                     </div>
                     <ul class="list-style-two style-two">
                         <li>

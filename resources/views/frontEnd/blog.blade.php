@@ -34,7 +34,7 @@
                     <div class="news-block style-three">
                         <div class="inner-box">
                             <div class="image">
-                                <a href="{{url('/blog_single',['slug'=>$item->slug])}}"><img src="{{Storage::url($item->thumbnail)}}" alt="" /></a>
+                                <a href="{{url('/blog_single',['slug'=>$item->slug])}}"><img src="{{asset(Storage::url($item->thumbnail))}}" alt="" /></a>
                             </div>
                             <div class="lower-content">
                                 <ul class="post-meta">
@@ -109,7 +109,7 @@
                                 <div class="sidebar-title-two">
                                     <h4>Search</h4>
                                 </div>
-                                <form method="post" action="https://expert-themes.com/html/solva/contact.html">
+                                <form method="post" action="#">
                                     <div class="form-group">
                                         <input type="search" name="search-field" value="" placeholder="Type Keywrod" required>
                                         <button type="submit"><span class="icon fa fa-search"></span></button>
@@ -142,9 +142,9 @@
                                     <h4>Popular Posts</h4>
                                 </div>
                                 <div class="post-outer">
-                                    @foreach (Helpers::findAllDesc('blogs')->slice(0, 3) as $item)
+                                    @foreach (Helpers::findRandom('blogs')->slice(0, 3) as $item)
                                     <article class="post">
-                                        <figure class="post-thumb"><img src="{{Storage::url($item->thumbnail)}}" alt=""><a href="{{url('/blog_single',['slug'=>$item->slug])}}" class="overlay-box"></a></figure>
+                                        <figure class="post-thumb"><img src="{{asset(Storage::url($item->thumbnail))}}" alt=""><a href="{{url('/blog_single',['slug'=>$item->slug])}}" class="overlay-box"></a></figure>
                                         <div class="text"><a href="{{url('/blog_single',['slug'=>$item->slug])}}">{{$item->header}}</a></div>
                                         <div class="post-info">{{date('F d, Y', strtotime($item->created_at))}}</div>
                                     </article>

@@ -7,12 +7,12 @@
 			<div class="auto-container">
 				<div class="clearfix">
 					<div class="pull-left">
-						<div class="title">Welcome to Solva Agency</div>
+						<div class="title">Welcome to Merina Soft</div>
 						<h2>Services Detail</h2>
 					</div>
 					<div class="pull-right">
 						<ul class="page-breadcrumb">
-							<li><a href="{{ asset('/') }}">home</a></li>
+							<li><a href="{{ url('/') }}">home</a></li>
 							<li>Services Detail</li>
 						</ul>
 					</div>
@@ -31,7 +31,7 @@
 						<div class="service-detail">
 							<div class="inner-box">
 								<div class="image">
-								<img src="{{Storage::url($services->image)}}" alt="" />
+								<img src="{{asset(Storage::url($services->image))}}" alt="" />
 								</div>
 								<div class="lower-content">
 									<h2>Overview</h2>
@@ -121,7 +121,7 @@
 										<div class="icon flaticon-phone-call"></div>
 										<div class="text">Got any Questions? <br> Call Us Today</div>
 										<div class="number">1-800-369-8527</div>
-										<div class="email">support@solvaconsult.net</div>
+										<div class="email">support@merinaconsult.net</div>
 									</div>
 								</div>
 

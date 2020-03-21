@@ -90,7 +90,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-contact-mail"></i><span
                             class="hide-menu">Contact <span
                                 class="badge badge-danger">{{Helpers::countTblData('message', 'status', null)}}</span></span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
@@ -106,7 +106,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-information"></i><span
                             class="hide-menu">About Us</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         <li class="sidebar-item"><a href="{{ url('/admin/about') }}" class="sidebar-link"><i
@@ -115,7 +115,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                        href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-card-details"></i><span
                             class="hide-menu">Client</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
                         @if (Helpers::isAdmin())
@@ -129,7 +129,7 @@
                     </ul>
                 </li>
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                    href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                    href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-message-alert"></i><span
                         class="hide-menu">Newsletter</span></a>
                 <ul aria-expanded="false" class="collapse  first-level">
                     <li class="sidebar-item"><a href="{{ url('/admin/newsletter') }}" class="sidebar-link"><i
@@ -138,7 +138,7 @@
                 </ul>
             </li>
             <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"
-                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple"></i><span
+                href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-blogger"></i><span
                     class="hide-menu">Blog</span></a>
             <ul aria-expanded="false" class="collapse  first-level">
                 @if (Helpers::isAdmin())

@@ -7,12 +7,12 @@
     	<div class="auto-container">
 			<div class="clearfix">
 				<div class="pull-left">
-					<div class="title">Welcome to Solva Agency</div>
+					<div class="title">Welcome to Merina Soft</div>
 					<h2>Projects Detail</h2>
 				</div>
 				<div class="pull-right">
 					<ul class="page-breadcrumb">
-						<li><a href="/">home</a></li>
+						<li><a href="{{url('/')}}">home</a></li>
 						<li>Projects Detail</li>
 					</ul>
 				</div>
@@ -47,7 +47,7 @@
 				<div class="two-column">
 					<div class="row clearfix">
 						<div class="column col-lg-12 col-md-12 col-sm-12">
-							<img src="{{Storage::url($projects->image)}}" alt="" />
+							<img src="{{asset(Storage::url($projects->image))}}" alt="" />
 						</div>
 						{{-- <div class="column col-lg-6 col-md-6 col-sm-12">
 							<h3>Project Solution</h3>

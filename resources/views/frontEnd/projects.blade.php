@@ -47,7 +47,7 @@
 					<div class="project-block mix all {{$item->category_id}} strategy col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box">
 							<div class="image">
-                            <img class="project_thambnill" src="{{Storage::url($item->thumbnail)}}" alt="" />
+                            <img class="project_thambnill" src="{{asset(Storage::url($item->thumbnail))}}" alt="" />
 								<div class="overlay-box">
 									<div class="overlay-inner">
 										<div class="title">Category</div>
@@ -90,9 +90,9 @@
 
 				</div>
 
-				<div class="btn-box text-center">
+				{{-- <div class="btn-box text-center">
 					<a href="#" class="theme-btn btn-style-three"><span class="txt">Load More</span></a>
-				</div>
+				</div> --}}
 
 			</div>
 		</div>
@@ -106,7 +106,7 @@
 <div class="search-popup">
 	<button class="close-search style-two"><span class="flaticon-multiply"></span></button>
 	<button class="close-search"><span class="flaticon-up-arrow"></span></button>
-	<form method="post" action="https://expert-themes.com/html/solva/blog.html">
+	<form method="post" action="#">
 		<div class="form-group">
 			<input type="search" name="search-field" value="" placeholder="Search Here" required="">
 			<button type="submit"><i class="fa fa-search"></i></button>

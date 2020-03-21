@@ -6,12 +6,12 @@
     <div class="auto-container">
         <div class="clearfix">
             <div class="pull-left">
-                <div class="title">Welcome to Solva Agency</div>
+                <div class="title">Welcome to Merina Soft</div>
                 <h2>Team</h2>
             </div>
             <div class="pull-right">
                 <ul class="page-breadcrumb">
-                    <li><a href="index.html">home</a></li>
+                    <li><a href="{{url('/')}}">home</a></li>
                     <li>Team</li>
                 </ul>
             </div>
@@ -35,7 +35,7 @@
             <div class="team-block col-lg-3 col-md-4 col-sm-12">
                 <div class="inner-box">
                     <div class="image">
-                            <img src="{{Storage::url($item->image)}}" alt="" />
+                            <img src="{{asset(Storage::url($item->image))}}" alt="" />
                         <div class="overlay-box">
                             <ul class="social-nav">
                                 <li class="facebook"><a href="{{$item->facebook}}"><span class="fa fa-facebook-f"></span></a></li>
@@ -44,7 +44,7 @@
                                 <li class="linked"><a href="{{$item->linkedin}}"><span class="fa fa-linkedin"></span></a></li>
                             </ul>
                             <div class="content">
-                                <h4><a href="#">{{ $item->name }}</a></h4>
+                                <h4><a href="javascript:void(0)">{{ $item->name }}</a></h4>
                                 <div class="designation">{{ $item->designation }}</div>
                             </div>
                         </div>

@@ -34,6 +34,10 @@ class Helpers
     {
         return DB::table($tableName)->orderBy('id', 'desc')->get();
     }
+    public function findRandom($tableName)
+    {
+        return DB::table($tableName)->inRandomOrder()->get();
+    }
     public function findFirst($tableName)
     {
         return DB::table($tableName)->first();

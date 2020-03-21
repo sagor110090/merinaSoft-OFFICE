@@ -6,7 +6,7 @@
     <div class="auto-container">
         <div class="clearfix">
             <div class="pull-left">
-                <div class="title">Welcome to Solva Agency</div>
+                <div class="title">Welcome to Merina Soft</div>
                 <h2>Team</h2>
             </div>
             <div class="pull-right">
@@ -37,7 +37,7 @@
                 </a>
                 <div class="clientArea"><a href="{{$item->link}}">
                         <div class="col-xs-12 col-sm-4 col-md-4">
-                            <img id="client_logo" src="{{Storage::url($item->image)}}" height="80px" weight="100px" class="center">
+                            <img id="client_logo" src="{{asset(Storage::url($item->image))}}" height="80px" weight="100px" class="center">
                         </div>
                     </a>
                     <div class="col-xs-12 col-sm-8 col-md-8"><a href="{{$item->link}}">
