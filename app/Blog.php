@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Blog extends Model
 {
+    /**
+     * Indicates if the model should be timestamped.
+     *
+     * @var bool
+     */
+    public $timestamps = true;
 
     protected $table = 'blogs';
 

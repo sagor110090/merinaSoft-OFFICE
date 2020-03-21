@@ -270,20 +270,17 @@
 							<div class="footer-title">
 								<h4>Latest News</h4>
 							</div>
-							<!-- Footer Column -->
-							<div class="widget-content">
-								<div class="post">
-									<div class="thumb"><a href="{{ asset('fronted') }}/news-detail.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></div>
-									<h5><a href="{{ asset('fronted') }}/news-detail.html">Retail banks wakeup to digital</a></h5>
-									<span class="date">28 Dec, 2019</span>
-								</div>
-
-								<div class="post">
-									<div class="thumb"><a href="{{ asset('fronted') }}/news-detail.html"><img src="images/resource/post-thumb-2.jpg" alt=""></a></div>
-									<h5><a href="{{ asset('fronted') }}/news-detail.html">How to improve employees skills</a></h5>
-									<span class="date">13 Oct, 2019</span>
-								</div>
-							</div>
+                            <!-- Footer Column -->
+                            @foreach (Helpers::findAllDesc('blogs')->slice(0, 2) as $item)
+                                <div class="widget-content">
+                                    <div class="post">
+                                        <div class="thumb"><a href="{{ asset('fronted') }}/news-detail.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></div>
+                                        <h5><a href="{{url('/blog_single',['slug'=>$item->slug])}}">{{$item->header}}</a></h5>
+                                        <div class="text">{{Helpers::limit_text($item->shortDescription, 20)}}</div>
+                                        <span class="date">{{date('F d, Y', strtotime($item->created_at))}}</span>
+                                    </div>
+                                </div>
+                            @endforeach
 						</div>
 					</div>
 
@@ -324,7 +321,7 @@
 			<div class="auto-container">
 				<div class="clearfix">
 					<div class="pull-left">
-						<div class="copyright">&copy; 2020 solva. Designed By Expert-Themes</div>
+						<div class="copyright">&copy; 2020 Merina Soft. Designed By Merina Soft Web Designer</div>
 					</div>
 					<div class="pull-right">
 						<ul class="footer-nav">

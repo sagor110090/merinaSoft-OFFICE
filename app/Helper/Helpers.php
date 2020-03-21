@@ -30,6 +30,10 @@ class Helpers
     {
         return DB::table($tableName)->get();
     }
+    public function findAllDesc($tableName)
+    {
+        return DB::table($tableName)->orderBy('id', 'desc')->get();
+    }
     public function findFirst($tableName)
     {
         return DB::table($tableName)->first();

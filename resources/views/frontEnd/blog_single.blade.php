@@ -35,7 +35,7 @@
 							</div>
 							<div class="lower-content">
 								<ul class="post-meta">
-									<li><span class="icon flaticon-calendar-1"></span>June 30, 2020</li>
+									<li><span class="icon flaticon-calendar-1"></span>{{date('F d, Y', strtotime($blog->created_at))}}</li>
 									<li><span class="icon flaticon-user-3"></span>By Admin</li>
 								</ul>
 								<h4>{{$blog->header}}</h4>
@@ -203,11 +203,11 @@
                                         <h4>Popular Posts</h4>
                                     </div>
                                     <div class="post-outer">
-                                        @foreach (Helpers::findAll('blogs')->slice(0, 3) as $item)
+                                        @foreach (Helpers::findAllDesc('blogs')->slice(0, 3) as $item)
                                             <article class="post">
                                                 <figure class="post-thumb"><img src="{{Storage::url($item->thumbnail)}}" alt=""><a href="{{url('/blog_single',['slug'=>$item->slug])}}" class="overlay-box"></a></figure>
                                                 <div class="text"><a href="{{url('/blog_single',['slug'=>$item->slug])}}">{{$item->header}}</a></div>
-                                                <div class="post-info">June 21, 2019</div>
+                                                <div class="post-info">{{date('F d, Y', strtotime($item->created_at))}}</div>
                                             </article>
                                         @endforeach
 

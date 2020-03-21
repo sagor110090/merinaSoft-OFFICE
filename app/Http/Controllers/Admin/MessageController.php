@@ -16,7 +16,7 @@ class MessageController extends Controller
      */
     public function index()
     {
-        $message = Message::all()->sortByDesc("id");;
+        $message = Message::all()->sortByDesc("id");
         return view('admin.message.index', compact('message'));
     }
 

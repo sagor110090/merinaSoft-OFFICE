@@ -72,7 +72,7 @@
 								<div class="icon-box">
 									<span class="icon flaticon-pie-chart-3"></span>
 								</div>
-							<h5><a href="{{ asset('fronted') }}/services-single.html">{{$item->header}}</a></h5>
+							<h5><a href="{{ asset('frontEnd') }}/services-single.html">{{$item->header}}</a></h5>
 								<div class="text">{{ Helpers::limit_text($item->shortDescription, 20) }}</div>
 							</div>
 							<div class="big-icon flaticon-pie-chart-3"></div>
@@ -83,7 +83,7 @@
 				</div>
 
 			</div>
-			<div class="consult">You can also find our <a href="{{ asset('fronted') }}/services.html">Consultant Service</a> to contact for the consulting</div>
+			<div class="consult">You can also find our <a href="{{ asset('frontEnd') }}/services.html">Consultant Service</a> to contact for the consulting</div>
 		</div>
 	</section>
 	<!-- End Services Section -->
@@ -100,7 +100,7 @@
                             <div class="image">
                                 <img src="{{Storage::url($item->image)}}" alt="" />
                                 <div class="projects">
-                                    More than 350 projects <br> were completed.
+                                    More than {{Helpers::findAll('project')->count()}} projects <br> were completed.
                                 </div>
                             </div>
                         </div>
@@ -146,7 +146,7 @@
 	<!-- End Introduction Section -->
 
 	<!-- Counter Section -->
-    <section class="counter-section" style="background-image: url(images/background/1.jpg)">
+    {{-- <section class="counter-section" style="background-image: url(images/background/1.jpg)">
     	<div class="auto-container">
 			<!-- Sec Title -->
 			<div class="sec-title light centered">
@@ -202,7 +202,7 @@
 			</div>
 
 		</div>
-	</section>
+	</section> --}}
 
 	<!-- Portfolio Section -->
 	<section class="portfolio-section">
@@ -595,33 +595,36 @@
 			</div>
 			<div class="row clearfix">
 
-				<!-- News Block -->
-				<div class="news-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<a href="{{ asset('fronted') }}/news-detail.html"><img src="images/resource/news-1.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li><span class="icon flaticon-calendar-1"></span>June 30, 2020</li>
-								<li><span class="icon flaticon-user-3"></span>By Admin</li>
-							</ul>
-							<h4><a href="{{ asset('fronted') }}/news-detail.html">Retail banks wakeup to digital</a></h4>
-							<div class="text">know how to pursue pleasure rationally seds encounter consequences.</div>
-							<div class="lower-box clearfix">
-								<div class="pull-left">
-									<a href="{{ asset('fronted') }}/news-detail.html" class="read-more">Read More</a>
-								</div>
-								<div class="pull-right">
-									<a href="{{ asset('fronted') }}/news-detail.html" class="comments">3 Comments</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+                <!-- News Block -->
+                @foreach (Helpers::findAllDesc('blogs')->slice(0, 6) as $item)
+                    <div class="news-block col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <div class="image">
+                                <a href="{{url('/blog_single',['slug'=>$item->slug])}}"><img src="{{Storage::url($item->thumbnail)}}" alt="Blog Thumbnail" /></a>
+                            </div>
+                            <div class="lower-content">
+                                <ul class="post-meta">
+                                    <li><span class="icon flaticon-calendar-1"></span>{{date('F d, Y', strtotime($item->created_at))}}</li>
+                                    <li><span class="icon flaticon-user-3"></span>By Admin</li>
+                                </ul>
+                                <h4><a href="{{url('/blog_single',['slug'=>$item->slug])}}">{{$item->header}}</a></h4>
+                                <div class="text">{{Helpers::limit_text($item->shortDescription, 20)}}</div>
+                                <div class="lower-box clearfix">
+                                    <div class="pull-left">
+                                        <a href="{{url('/blog_single',['slug'=>$item->slug])}}" class="read-more">Read More</a>
+                                    </div>
+                                    {{-- <div class="pull-right">
+                                        <a href="{{ asset('fronted') }}/news-detail.html" class="comments">3 Comments</a>
+                                    </div> --}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
 
 				<!-- News Block -->
-				<div class="news-block col-lg-4 col-md-6 col-sm-12">
+				{{-- <div class="news-block col-lg-4 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
 						<div class="image">
 							<a href="{{ asset('fronted') }}/news-detail.html"><img src="images/resource/news-2.jpg" alt="" /></a>
@@ -643,32 +646,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
-
-				<!-- News Block -->
-				<div class="news-block col-lg-4 col-md-6 col-sm-12">
-					<div class="inner-box wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image">
-							<a href="{{ asset('fronted') }}/news-detail.html"><img src="images/resource/news-3.jpg" alt="" /></a>
-						</div>
-						<div class="lower-content">
-							<ul class="post-meta">
-								<li><span class="icon flaticon-calendar-1"></span>June 30, 2020</li>
-								<li><span class="icon flaticon-user-3"></span>By Admin</li>
-							</ul>
-							<h4><a href="{{ asset('fronted') }}/news-detail.html">How improve employees skills</a></h4>
-							<div class="text">Great pleasure to take a trivial example, which of us undertakes laborious.</div>
-							<div class="lower-box clearfix">
-								<div class="pull-left">
-									<a href="{{ asset('fronted') }}/news-detail.html" class="read-more">Read More</a>
-								</div>
-								<div class="pull-right">
-									<a href="{{ asset('fronted') }}/news-detail.html" class="comments">1 Comments</a>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+				</div> --}}
 
 			</div>
 		</div>
