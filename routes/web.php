@@ -56,7 +56,11 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/message', 'FrontEndController@addMessage');
     Route::post('/newsletter', 'FrontEndController@addEmail');
 
+    
 
-
+Route::get('/live', function () {
+    return view('frontEnd.live');
+    
+});
 
 
