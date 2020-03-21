@@ -64,12 +64,12 @@
             <div class="auto-container">
                 <div class="clearfix">
 
-                    <div class="pull-left logo-box">
-                        <div class="logo"><a href="{{ asset('frontEnd') }}/index.html"><img src="images/logo.png" alt="" title=""></a></div>
-                    </div>
+                    
 
                     <div class="pull-right upper-right clearfix row">
-
+						<div class="pull-left logo-box col-sm-3">
+							<div class="logo"><a href="{{ asset('/') }}"><img src="{{ asset('/frontEnd') }}/images/logo.png" alt="" title=""></a></div>
+						</div>
                         <!--Info Box-->
                         <div class="upper-column info-box col-sm-3">
                             <div class="icon-box"><span class="flaticon-place"></span></div>
@@ -89,7 +89,7 @@
                         </div>
 
                         <!--Info Box-->
-                        <div class="upper-column info-box col-sm-3">
+                        <div class="upper-column info-box col-sm-2">
                             <div class="icon-box"><span class="flaticon-clock-3"></span></div>
                             <ul>
 								<li> <b>{{Helpers::findFirst('contact')->start_time}}</b> to <b>{{Helpers::findFirst('contact')->end_time}}</b> </li>

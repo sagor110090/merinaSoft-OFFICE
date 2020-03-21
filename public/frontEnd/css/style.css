@@ -1683,7 +1683,7 @@ img{
 	float:left;
 	z-index:1;
 	min-height:56px;
-	margin-left:50px;
+	margin-left: 2%;
 	font-size:15px;
 	color:#777777;
 	text-align:left;
@@ -12708,4 +12708,13 @@ img{
 .search-popup .close-search.style-two span{
 	font-size:20px;
 	color:#ffffff;
+}
+
+.clientArea {
+    /* border: 1px solid; */
+    margin: 14px;
+    padding: 9px;
+    background: antiquewhite;
+    color: black;
+    /* border-radius: 10px; */
 }
