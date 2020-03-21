@@ -92,7 +92,9 @@ class FrontEndController extends Controller
         $requestData = $request->all();
         Newsletter::create($requestData);
         Toastr::success('Class updated!', 'Done', ["positionClass" => "toast-top-right"]);
-        return back();
+        return back()
+            ->with('success','You have successfully submit.')
+            ->withErrors($arrayWithErrors);
     }
 
     public function create()

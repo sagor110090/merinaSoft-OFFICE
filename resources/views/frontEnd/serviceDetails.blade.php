@@ -12,7 +12,7 @@
 					</div>
 					<div class="pull-right">
 						<ul class="page-breadcrumb">
-							<li><a href="{{ asset('/') }}">home</a></li>
+							<li><a href="{{ url('/') }}">home</a></li>
 							<li>Services Detail</li>
 						</ul>
 					</div>

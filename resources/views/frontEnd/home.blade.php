@@ -11,8 +11,8 @@
 
 					<!-- Content boxed -->
 					<div class="content-boxed">
-						<div class="title">{{$item->slider_large_title}}</div>
-						<h1>{{$item->slider_small_title}}</h1>
+						<div class="title">{{$item->slider_small_title}}</div>
+						<h1>{{$item->slider_large_title}}</h1>
 						<div class="link-box clearfix">
 							<a href="{{ url('/' . $item->video_link) }}" class="lightbox-image video-box"><span class="fa fa-play"><i class="ripple"></i></span></a>
 							<a href="{{ url('/services') }}" class="theme-btn btn-style-three"><span class="txt">View Service</span></a>
@@ -465,7 +465,7 @@
                                         <li class="linked"><a href="{{$item->linkedin}}"><span class="fa fa-linkedin"></span></a></li>
                                     </ul>
                                     <div class="content">
-                                    <h4><a href="#">{{$item->name}}</a></h4>
+                                    <h4><a href="javascrip:void(0)">{{$item->name}}</a></h4>
                                         <div class="designation">{{$item->designation}}</div>
                                     </div>
                                 </div>

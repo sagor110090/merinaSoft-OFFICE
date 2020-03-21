@@ -11,7 +11,7 @@
             </div>
             <div class="pull-right">
                 <ul class="page-breadcrumb">
-                    <li><a href="index.html">home</a></li>
+                    <li><a href="{{url('/')}}">home</a></li>
                     <li>Team</li>
                 </ul>
             </div>

@@ -286,6 +286,15 @@
 
 					<!-- Footer Column -->
 					<div class="footer-column col-lg-4 col-md-6 col-sm-12">
+
+                        @if ($errors->any())
+                        <ul class="alert alert-danger">
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        @endif
+
 						<div class="footer-widget newsletter-widget">
 							<div class="footer-title">
 								<h4>Newsletter</h4>
