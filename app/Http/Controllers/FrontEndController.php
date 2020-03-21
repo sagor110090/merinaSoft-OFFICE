@@ -51,7 +51,7 @@ class FrontEndController extends Controller
     }
     public function blog()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::all()->sortByDesc("id");
         return view('frontEnd.blog',compact('blogs'));
     }
     public function slugBlog($slug)
