@@ -28,7 +28,7 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td><img width="100px" src="{{ Storage::url($our_team->image)}}" alt="photo"></td>
+                            <td><img width="100px" src="{{ asset(Storage::url($our_team->image))}}" alt="photo"></td>
                         </tr>
                         <tr>
                             <th>ID</th>

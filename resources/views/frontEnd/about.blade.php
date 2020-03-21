@@ -29,7 +29,7 @@
             <div class="image-column col-lg-6 col-md-12 col-sm-12">
                 <div class="inner-column">
                     <div class="image">
-                        <img src="{{Storage::url(Helpers::findFirst('about')->image)}}" alt="" />
+                        <img src="{{asset(Storage::url(Helpers::findFirst('about')->image))}}" alt="" />
                         {{-- <div class="projects">
                             More than 350 projects <br> were completed.
                         </div> --}}

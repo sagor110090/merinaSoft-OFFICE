@@ -66,7 +66,7 @@
             </label>
         </div>
         <div class="avatar-preview">
-        <div id="thumbnailPreview" style="background-image: url({{(isset($project->thumbnail) ? Storage::url($project->thumbnail) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">
+        <div id="thumbnailPreview" style="background-image: url({{(isset($project->thumbnail) ? asset(Storage::url($project->thumbnail)) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
             </label>
         </div>
         <div class="avatar-preview">
-        <div id="imagePreview" style="background-image: url({{(isset($project->image) ? Storage::url($project->image) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">
+        <div id="imagePreview" style="background-image: url({{(isset($project->image) ? asset(Storage::url($project->image)) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">
             </div>
         </div>
     </div>

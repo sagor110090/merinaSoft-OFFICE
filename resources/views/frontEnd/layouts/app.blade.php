@@ -231,7 +231,7 @@
                 <!--Sponsors Carousel-->
                 <ul class="sponsors-carousel owl-carousel owl-theme">
                     @foreach (Helpers::findAll('client') as $item)
-                        <li class="slide-item"><figure class="image-box"><a href="{{$item->link}}"><img src="{{Storage::url($item->image)}}" alt=""></a></figure></li>
+                        <li class="slide-item"><figure class="image-box"><a href="{{$item->link}}"><img src="{{asset(Storage::url($item->image))}}" alt=""></a></figure></li>
                     @endforeach
 
                     {{-- <li class="slide-item"><figure class="image-box"><a href="{{ asset('fronted') }}/#"><img src="{{ asset('frontEnd') }}/images/clients/2.png" alt=""></a></figure></li> --}}
@@ -326,10 +326,10 @@
 					<div class="pull-right">
 						<ul class="footer-nav">
 							<li><a href="{{ url('/') }}">Home</a></li>
-							<li><a href="{{ asset('fronted') }}/#">Privacy Policy</a></li>
-							<li><a href="{{ asset('fronted') }}/#">Investor</a></li>
-							<li><a href="{{ asset('fronted') }}/#">Legals</a></li>
-							<li><a href="{{ asset('fronted') }}/#">Contact</a></li>
+							<li><a href="javascript:void(0)">Privacy Policy</a></li>
+							<li><a href="javascript:void(0)">Investor</a></li>
+							<li><a href="javascript:void(0)">Legals</a></li>
+							<li><a href="{{ url('/contacts') }}">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -354,7 +354,7 @@
 					<div class="sidebar-info-contents">
 						<div class="content-inner">
 							<div class="logo">
-								<a href="{{ asset('fronted') }}/index.html"><img src="images/logo-2.png" alt="" /></a>
+								<a href="{{url('/')}}"><img src="{{ asset('frontEnd') }}/images/logo-2.png" alt="" /></a>
 							</div>
 							<div class="content-box">
 								<h2>About Us</h2>
@@ -397,7 +397,7 @@
 <div class="search-popup">
 	<button class="close-search style-two"><span class="flaticon-multiply"></span></button>
 	<button class="close-search"><span class="flaticon-up-arrow"></span></button>
-	<form method="post" action="https://expert-themes.com/html/solva/blog.html">
+	<form method="post" action="Javascript:void(0)">
 		<div class="form-group">
 			<input type="search" name="search-field" value="" placeholder="Search Here" required="">
 			<button type="submit"><i class="fa fa-search"></i></button>
@@ -424,5 +424,4 @@
 
 </body>
 
-<!-- Mirrored from expert-themes.com/html/solva/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 04 Mar 2020 05:08:11 GMT -->
 </html>

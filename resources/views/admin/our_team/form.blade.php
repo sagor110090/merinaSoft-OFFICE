@@ -38,7 +38,7 @@
             </label>
         </div>
         <div class="avatar-preview">
-        <div id="imagePreview" style="background-image: url({{(isset($our_team->image) ? Storage::url($our_team->image) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">
+        <div id="imagePreview" style="background-image: url({{(isset($our_team->image) ? asset(Storage::url($our_team->image)) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">
             </div>
         </div>
     </div>

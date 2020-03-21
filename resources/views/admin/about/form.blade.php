@@ -62,7 +62,7 @@
             </label>
         </div>
         <div class="avatar-preview">
-        <div id="imagePreview" style="background-image: url({{(isset($about->image) ? Storage::url($about->image) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">
+        <div id="imagePreview" style="background-image: url({{(isset($about->image) ? asset(Storage::url($about->image)) : 'https://4.bp.blogspot.com/_j-IldstRiaI/TS7AcMnzI0I/AAAAAAAAAFc/5548Yg80r30/w1200-h630-p-k-no-nu/110075pp.jpg')}});">
             </div>
         </div>
     </div>

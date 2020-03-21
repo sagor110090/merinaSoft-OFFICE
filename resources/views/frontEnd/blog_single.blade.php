@@ -31,7 +31,7 @@
                 	<div class="blog-detail">
 						<div class="inner-box">
 							<div class="image">
-								<img src="{{Storage::url($blog->thumbnail)}}" alt="Thumbnail" />
+								<img src="{{asset(Storage::url($blog->thumbnail))}}" alt="Thumbnail" />
 							</div>
 							<div class="lower-content">
 								<ul class="post-meta">
@@ -46,7 +46,7 @@
 										<div class="row clearfix">
 											<div class="column col-lg-6 col-md-6 col-sm-12">
 												<div class="image">
-													<img src="{{Storage::url($blog->image)}}" alt="Image" />
+													<img src="{{asset(Storage::url($blog->image))}}" alt="Image" />
 												</div>
 											</div>
 											<div class="column col-lg-6 col-md-6 col-sm-12">
@@ -127,7 +127,7 @@
 							<div class="group-title"><h4>Leave A Comment</h4></div>
 
 							<!--Comment Form-->
-							<form method="post" action="https://expert-themes.com/html/solva/blog.html">
+							<form method="post" action="#">
 								<div class="row clearfix">
 
 									<div class="col-lg-12 col-md-12 col-sm-12 form-group">
@@ -171,7 +171,7 @@
                                     <div class="sidebar-title-two">
                                         <h4>Search</h4>
                                     </div>
-                                    <form method="post" action="https://expert-themes.com/html/solva/contact.html">
+                                    <form method="post" action="#">
                                         <div class="form-group">
                                             <input type="search" name="search-field" value="" placeholder="Type Keywrod" required>
                                             <button type="submit"><span class="icon fa fa-search"></span></button>
@@ -203,9 +203,9 @@
                                         <h4>Popular Posts</h4>
                                     </div>
                                     <div class="post-outer">
-                                        @foreach (Helpers::findAllDesc('blogs')->slice(0, 3) as $item)
+                                        @foreach (Helpers::findRandom('blogs')->slice(0, 3) as $item)
                                             <article class="post">
-                                                <figure class="post-thumb"><img src="{{Storage::url($item->thumbnail)}}" alt=""><a href="{{url('/blog_single',['slug'=>$item->slug])}}" class="overlay-box"></a></figure>
+                                                <figure class="post-thumb"><img src="{{asset(Storage::url($item->thumbnail))}}" alt=""><a href="{{url('/blog_single',['slug'=>$item->slug])}}" class="overlay-box"></a></figure>
                                                 <div class="text"><a href="{{url('/blog_single',['slug'=>$item->slug])}}">{{$item->header}}</a></div>
                                                 <div class="post-info">{{date('F d, Y', strtotime($item->created_at))}}</div>
                                             </article>

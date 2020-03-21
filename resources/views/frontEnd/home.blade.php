@@ -6,7 +6,7 @@
 
         <div class="main-slider-carousel owl-carousel owl-theme">
             @foreach (Helpers::findAll('slider') as $item)
-			<div class="slide" style="background-image:url({{Storage::url($item->image)}})">
+			<div class="slide" style="background-image:url({{asset(Storage::url($item->image))}})">
                 <div class="auto-container">
 
 					<!-- Content boxed -->
@@ -28,7 +28,7 @@
                 <div class="auto-container">
 					<!-- Content boxed -->
 					<div class="content-boxed">
-						<div class="title">Welcome to Solva Agency</div>
+						<div class="title">Welcome to Merina Soft</div>
 						<h1>Better Solution <br> At Your Fingertips.</h1>
 						<div class="link-box clearfix">
 							<a href="{{ asset('fronted') }}/https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image video-box"><span class="fa fa-play"><i class="ripple"></i></span></a>
@@ -42,7 +42,7 @@
                 <div class="auto-container">
 					<!-- Content boxed -->
 					<div class="content-boxed">
-						<div class="title">Welcome to Solva Agency</div>
+						<div class="title">Welcome to Merina Soft</div>
 						<h1>Better Solution <br> At Your Fingertips.</h1>
 						<div class="link-box clearfix">
 							<a href="{{ asset('fronted') }}/https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image video-box"><span class="fa fa-play"><i class="ripple"></i></span></a>
@@ -83,7 +83,7 @@
 				</div>
 
 			</div>
-			<div class="consult">You can also find our <a href="{{ asset('frontEnd') }}/services.html">Consultant Service</a> to contact for the consulting</div>
+			<div class="consult">You can also find our <a href="{{url('/contacts')}}">Consultant Service</a> to contact for the consulting</div>
 		</div>
 	</section>
 	<!-- End Services Section -->
@@ -98,7 +98,7 @@
                     <div class="image-column col-lg-6 col-md-12 col-sm-12">
                         <div class="inner-column">
                             <div class="image">
-                                <img src="{{Storage::url($item->image)}}" alt="" />
+                                <img src="{{ asset(Storage::url($item->image))}}" alt="" />
                                 <div class="projects">
                                     More than {{Helpers::findAll('project')->count()}} projects <br> were completed.
                                 </div>
@@ -134,7 +134,7 @@
                             <!-- Contact -->
                             <div class="contact">
                                 <span class="question">Call to Ask Any Question</span>
-                            <a href="#">{{$item->faq}}</a>
+                            <a href="javascript:void(0)">{{$item->faq}}</a>
                             </div>
                         </div>
                     </div>
@@ -234,7 +234,7 @@
 					<div class="project-block masonry-item all {{$item->category_id}} strategy col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box">
 							<div class="image">
-								<img src="{{Storage::url($item->thumbnail)}}" alt="" />
+								<img src="{{asset(Storage::url($item->thumbnail))}}" alt="" />
 								<div class="overlay-box">
 									<div class="overlay-inner">
 										<div class="title">Category</div>
@@ -456,7 +456,7 @@
                     <div class="team-block">
                         <div class="inner-box">
                             <div class="image">
-                            <img src="{{Storage::url($item->image)}}" alt="" />
+                            <img src="{{asset(Storage::url($item->image))}}" alt="" />
                                 <div class="overlay-box">
                                     <ul class="social-nav">
                                         <li class="facebook"><a href="{{$item->facebook}}"><span class="fa fa-facebook-f"></span></a></li>
@@ -600,7 +600,7 @@
                     <div class="news-block col-lg-4 col-md-6 col-sm-12">
                         <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="image">
-                                <a href="{{url('/blog_single',['slug'=>$item->slug])}}"><img src="{{Storage::url($item->thumbnail)}}" alt="Blog Thumbnail" /></a>
+                                <a href="{{url('/blog_single',['slug'=>$item->slug])}}"><img src="{{asset(Storage::url($item->thumbnail))}}" alt="Blog Thumbnail" /></a>
                             </div>
                             <div class="lower-content">
                                 <ul class="post-meta">

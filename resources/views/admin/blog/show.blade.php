@@ -32,6 +32,10 @@
                 <table class="table">
                     <tbody>
                         <tr>
+                            <td><img width="100px" src="{{ asset(Storage::url($blog->thumbnail))}}" alt="photo"></td>
+                            <td><img width="100px" src="{{ asset(Storage::url($blog->image))}}" alt="photo"></td>
+                        </tr>
+                        <tr>
                             <th>ID</th>
                             <td>{{ $blog->id }}</td>
                         </tr>
@@ -50,14 +54,6 @@
                         <tr>
                             <th> Tag </th>
                             <td> {{ $blog->tag }} </td>
-                        </tr>
-                        <tr>
-                            <th> Thumbnail </th>
-                            <td> {{ $blog->thumbnail }} </td>
-                        </tr>
-                        <tr>
-                            <th> Image </th>
-                            <td> {{ $blog->image }} </td>
                         </tr>
                         <tr>
                             <th> Slug </th>

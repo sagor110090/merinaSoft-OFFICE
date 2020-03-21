@@ -27,8 +27,8 @@
                 <table class="table">
                     <tbody>
                         <tr>
-                            <td><img width="100px" src="{{ Storage::url($project->thumbnail)}}" alt="photo"></td>
-                            <td><img width="100px" src="{{ Storage::url($project->image)}}" alt="photo"></td>
+                            <td><img width="100px" src="{{ asset(Storage::url($project->thumbnail))}}" alt="photo"></td>
+                            <td><img width="100px" src="{{ asset(Storage::url($project->image))}}" alt="photo"></td>
                         </tr>
                         <tr>
                             <th>ID</th>
