@@ -50,13 +50,14 @@ class ClientController extends Controller
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
         }
-        // $img = Image::make($request->file('image'))
-        // ->resize(400, 150, function($constraint) {
-        //     $constraint->aspectRatio();
-        // });
-
-        // $requestData['image'] = $img->store('uploads', 'public');
         Client::create($requestData);
+        $setImage = 'storage/'.$requestData['image'];
+        $img = Image::make($setImage)->resize(100, 100, function($constraint) {
+            $constraint->aspectRatio();
+        });
+        $img->save($setImage);
+        // $img = Image::make($setImage)->resize(100, 100)->save($setImage);
+
         Toastr::success('Class added!', 'Done', ["positionClass" => "toast-top-right"]);
         return redirect('admin/client/create');
     }
