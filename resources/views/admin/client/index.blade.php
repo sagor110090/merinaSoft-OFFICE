@@ -51,7 +51,7 @@
                                     class="btn btn-info btn-sm"><i class="fa fa-eye"
                                         aria-hidden="true"></i></button></a>
                                 <form method="POST" id="deleteButton{{$item->id}}"
-                                    action="{{ url('/admin/Client' . '/' . $item->id) }}" accept-charset="UTF-8"
+                                    action="{{ url('/admin/client' . '/' . $item->id) }}" accept-charset="UTF-8"
                                     style="display:inline">
                                     {{ method_field('DELETE') }}
                                     {{ csrf_field() }}

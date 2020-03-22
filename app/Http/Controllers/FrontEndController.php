@@ -86,15 +86,18 @@ class FrontEndController extends Controller
     }
     public function addEmail(Request $request)
     {
-        $this->validate($request, [
+        $dataValidated = $this->validate($request, [
 			'email' => 'required|email|unique:newsletter',
 		]);
         $requestData = $request->all();
         Newsletter::create($requestData);
         Toastr::success('Class updated!', 'Done', ["positionClass" => "toast-top-right"]);
+
         return back()
-            ->with('success','You have successfully submit.')
-            ->withErrors($arrayWithErrors);
+            ->with('success', 'You have successfully submit.');
+            // ->withErrors($dataValidated);
+            // ->withInput();
+
     }
 
     public function create()
