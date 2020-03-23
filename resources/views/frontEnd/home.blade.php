@@ -227,23 +227,23 @@
 
                 </div>
 
-                <div class="items-container project-div row clearfix">
+                <div class="items-container row clearfix">
 
-                    @foreach (Helpers::findAll('project') as $item)
+                    @foreach (Helpers::findAll('project')->slice(0, 6) as $item)
 					<!-- Portfolio Block -->
-					<div class="project-block masonry-item all {{$item->category_id}} strategy col-lg-4 col-md-6 col-sm-12">
+                    <div class="project-block masonry-item all {{$item->category_id}} strategy col-lg-4 col-md-6 col-sm-12">
 						<div class="inner-box">
 							<div class="image">
 								<img src="{{asset(Storage::url($item->thumbnail))}}" alt="" />
 								<div class="overlay-box">
 									<div class="overlay-inner">
-										<div class="title">Category</div>
+										<div class="title">Corporate</div>
 										<h4><a href="{{ isset($item->link) ? $item->link : 'javascript:void(0)' }}">{{$item->header}}</a></h4>
 										{{-- <div class="social-box">
-											<a href="{{ asset('fronted') }}/#" class="fa fa-facebook"></a>
-											<a href="{{ asset('fronted') }}/#" class="fa fa-twitter"></a>
-											<a href="{{ asset('fronted') }}/#" class="fa fa-google-plus"></a>
-											<a href="{{ asset('fronted') }}/#" class="fa fa-linkedin"></a>
+											<a href="#" class="fa fa-facebook"></a>
+											<a href="#" class="fa fa-twitter"></a>
+											<a href="#" class="fa fa-google-plus"></a>
+											<a href="#" class="fa fa-linkedin"></a>
 										</div> --}}
 										<a href="{{ url('/project-details', [$item->slug]) }}" data-caption="" class="plus icon flaticon-arrow-pointing-to-right"></a>
 									</div>

@@ -7,6 +7,7 @@ use App\Objective;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Toastr;
+use Image;
 
 class ObjectiveController extends Controller
 {
@@ -88,6 +89,8 @@ class ObjectiveController extends Controller
         }
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(470, 570)->save($setImage);
         }
         $objective->update($requestData);
 

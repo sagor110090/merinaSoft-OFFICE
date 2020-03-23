@@ -8,7 +8,12 @@
     <select name="category_id" class="form-control selectpicker">
         <option value="Category">Select Category</option>
         @foreach (Helpers::findAll('category') as $item)
-    <option value="{{$item->id}}">{{$item->name}}</option>
+    {{-- <option value="{{$item->id}}">{{$item->name}}</option> --}}
+        <option value="{{$item->id}}" @if(isset($project->id))
+            @if($project->id == $item->id) selected @endif
+            @endif>
+            {{$item->name}}
+        </option>
         @endforeach
     </select>
     {{-- <input class="form-control" name="category" type="text" id="category" value="{{ isset($project->category) ? $project->category : ''}}"

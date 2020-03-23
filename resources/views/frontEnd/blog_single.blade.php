@@ -31,7 +31,7 @@
                 	<div class="blog-detail">
 						<div class="inner-box">
 							<div class="image">
-								<img src="{{asset(Storage::url($blog->thumbnail))}}" alt="Thumbnail" />
+								<img src="{{asset(Storage::url($blog->image))}}" alt="Image" />
 							</div>
 							<div class="lower-content">
 								<ul class="post-meta">
@@ -46,7 +46,7 @@
 										<div class="row clearfix">
 											<div class="column col-lg-6 col-md-6 col-sm-12">
 												<div class="image">
-													<img src="{{asset(Storage::url($blog->image))}}" alt="Image" />
+													<img src="{{asset(Storage::url($blog->thumbnail))}}" alt="Thumbnail" />
 												</div>
 											</div>
 											<div class="column col-lg-6 col-md-6 col-sm-12">

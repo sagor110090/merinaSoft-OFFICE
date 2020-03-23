@@ -52,7 +52,7 @@ class ClientController extends Controller
         }
         Client::create($requestData);
         $setImage = 'storage/'.$requestData['image'];
-        $img = Image::make($setImage)->resize(100, 100, function($constraint) {
+        $img = Image::make($setImage)->resize(250, 90, function($constraint) {
             $constraint->aspectRatio();
         });
         $img->save($setImage);
@@ -108,9 +108,16 @@ class ClientController extends Controller
         if (!$request->old_image='') {
             Storage::delete('public/' . $client->image);
         }
+        $requestData = $request->all();
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
         }
+        $setImage = 'storage/'.$requestData['image'];
+        $img = Image::make($setImage)->resize(250, 90, function($constraint) {
+            $constraint->aspectRatio();
+        });
+        $img->save($setImage);
+        // $img = Image::make($setImage)->resize(100, 100)->save($setImage);
         $client->update($requestData);
 
         Toastr::success('Class updated!', 'Done', ["positionClass" => "toast-top-right"]);

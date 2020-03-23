@@ -7,6 +7,7 @@ use App\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Toastr;
+use Image;
 
 class SliderController extends Controller
 {
@@ -48,6 +49,14 @@ class SliderController extends Controller
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
         }
         Slider::create($requestData);
+        $setImage = 'storage/'.$requestData['image'];
+        $img = Image::make($setImage)->resize(1920, 1000)->save($setImage);
+        // $img = Image::make($setImage)->resize(200, 150, function($constraint) {
+        //     $constraint->aspectRatio();
+        // });
+        // $img->save($setImage);
+
+
         Toastr::success('Class added!', 'Done', ["positionClass" => "toast-top-right"]);
         return redirect('admin/slider/create');
     }
@@ -98,6 +107,8 @@ class SliderController extends Controller
         }
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(1920, 1000)->save($setImage);
         }
         $slider->update($requestData);
 

@@ -7,6 +7,7 @@ use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Toastr;
+use Image;
 
 class ProjectController extends Controller
 {
@@ -50,9 +51,13 @@ class ProjectController extends Controller
         $requestData = $request->all();
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(970, 570)->save($setImage);
         }
         if ($request->hasFile('thumbnail')) {
             $requestData['thumbnail'] = $request->file('thumbnail')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['thumbnail'];
+            $img = Image::make($setImage)->resize(370, 470)->save($setImage);
         }
         $requestData['slug'] = str_slug($request->header);
         Project::create($requestData);
@@ -113,9 +118,13 @@ class ProjectController extends Controller
         }
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(970, 570)->save($setImage);
         }
         if ($request->hasFile('thumbnail')) {
             $requestData['thumbnail'] = $request->file('thumbnail')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['thumbnail'];
+            $img = Image::make($setImage)->resize(370, 470)->save($setImage);
         }
         $requestData['slug'] = str_slug($request->header);
         $project->update($requestData);

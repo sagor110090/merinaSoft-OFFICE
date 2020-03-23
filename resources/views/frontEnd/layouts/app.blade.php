@@ -33,27 +33,6 @@
         <!-- Main Header -->
         <header class="main-header header-style-one">
 
-            {{-- Session Massege section --}}
-
-            @if ($message = Session::get('success'))
-            <div class="alert alert-success alert-block" id="success-alert">
-                <button type="button" class="close" data-dismiss="alert">×</button>
-                <strong>{{ $message }} {{ Session::get('product_name') }}</strong>
-            </div>
-            @endif
-
-            @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <strong>Whoops!</strong>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-            {{-- Session Massege section End --}}
-
             <!--Header Top-->
             <div class="header-top">
                 <div class="auto-container">
@@ -66,8 +45,8 @@
                         <!--Top Right-->
                         <div class="top-right pull-right">
                             <ul class="login-info">
-                                <li><a href="{{ asset('frontEnd') }}/login.html">Login</a></li>
-                                <li><a href="{{ asset('frontEnd') }}/login.html">Sign Up</a></li>
+                                <li><a href="javascript:void(0)">Login</a></li>
+                                <li><a href="javascript:void(0)">Sign Up</a></li>
                             </ul>
                             <!-- Social Nav -->
                             <ul class="social-nav">

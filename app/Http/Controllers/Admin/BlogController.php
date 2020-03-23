@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Toastr;
 use Helpers;
+use Image;
 
 class BlogController extends Controller
 {
@@ -39,13 +40,16 @@ class BlogController extends Controller
 			'blog_category_id' => 'required'
 		]);
         $requestData = $request->all();
-                if ($request->hasFile('thumbnail')) {
-            $requestData['thumbnail'] = $request->file('thumbnail')
-                ->store('uploads', 'public');
+        if ($request->hasFile('thumbnail')) {
+            $requestData['thumbnail'] = $request->file('thumbnail')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['thumbnail'];
+            $img = Image::make($setImage)->resize(370, 270)->save($setImage);
+
         }
         if ($request->hasFile('image')) {
-            $requestData['image'] = $request->file('image')
-                ->store('uploads', 'public');
+            $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(770, 450)->save($setImage);
         }
         $requestData['slug'] = str_slug($request->header);
         Blog::create($requestData);
@@ -88,12 +92,16 @@ class BlogController extends Controller
         }
         if ($request->hasFile('thumbnail')) {
             $requestData['thumbnail'] = $request->file('thumbnail')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['thumbnail'];
+            $img = Image::make($setImage)->resize(370, 270)->save($setImage);
         }
         if (!$request->old_image='') {
             Storage::delete('public/' . $blog->image);
         }
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(770, 450)->save($setImage);
         }
         $requestData['slug'] = str_slug($request->header);
         $blog->update($requestData);

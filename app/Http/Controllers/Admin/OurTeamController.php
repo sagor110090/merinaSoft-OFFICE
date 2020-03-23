@@ -7,6 +7,7 @@ use App\OurTeam;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Toastr;
+use Image;
 
 class OurTeamController extends Controller
 {
@@ -50,6 +51,8 @@ class OurTeamController extends Controller
         $requestData = $request->all();
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(270, 470)->save($setImage);
         }
         OurTeam::create($requestData);
         Toastr::success('Class added!', 'Done', ["positionClass" => "toast-top-right"]);
@@ -106,6 +109,8 @@ class OurTeamController extends Controller
         }
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(270, 470)->save($setImage);
         }
         $our_team->update($requestData);
 

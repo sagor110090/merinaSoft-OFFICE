@@ -7,6 +7,7 @@ use App\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Toastr;
+use Image;
 
 class ServiceController extends Controller
 {
@@ -46,6 +47,8 @@ class ServiceController extends Controller
         $requestData = $request->all();
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(1920, 1000)->save($setImage);
         }
         $requestData['slug'] = str_slug($request->header);
         Service::create($requestData);
@@ -99,6 +102,8 @@ class ServiceController extends Controller
         }
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
+            $setImage = 'storage/'.$requestData['image'];
+            $img = Image::make($setImage)->resize(770, 400)->save($setImage);
         }
         $requestData['slug'] = str_slug($request->header);
         $service->update($requestData);
