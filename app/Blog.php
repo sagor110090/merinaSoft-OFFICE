@@ -23,7 +23,8 @@ class Blog extends Model
     protected $primaryKey = 'id';
 
 
-    protected $fillable = ['header', 'shortDescription', 'description', 'tag', 'thumbnail', 'image', 'slug', 'blog_category_id'];
+    // protected $fillable = ['header', 'shortDescription', 'description', 'tag', 'thumbnail', 'image', 'slug', 'blog_category_id'];
+    protected $guarded=['old_thumbnail','old_image'];
 
     public function blog_category()
     {

@@ -10,7 +10,7 @@
         @foreach (Helpers::findAll('category') as $item)
     {{-- <option value="{{$item->id}}">{{$item->name}}</option> --}}
         <option value="{{$item->id}}" @if(isset($project->id))
-            @if($project->id == $item->id) selected @endif
+            @if($project->category_id == $item->id) selected @endif
             @endif>
             {{$item->name}}
         </option>
@@ -76,6 +76,7 @@
         </div>
     </div>
 </div>
+
 <div class="form-group {{ $errors->has('image') ? 'has-error' : ''}}">
     <div class="avatar-upload">
         <div class="avatar-edit">

@@ -110,21 +110,32 @@ class ProjectController extends Controller
 		]);
         $requestData = $request->all();
         $project = Project::findOrFail($id);
-        if (!$request->old_thumbnail='') {
-            Storage::delete('public/' . $project->thumbnail);
+        // dd($request->hasFile('thumbnail'));
+        if($request->hasFile('thumbnail')){
+            if (!$request->old_thumbnail='') {
+                Storage::delete('public/' . $project->thumbnail);
+            }
         }
-        if (!$request->old_image='') {
-            Storage::delete('public/' . $project->image);
+        if ($request->hasFile('image')) {
+            if (!$request->old_image='') {
+                Storage::delete('public/' . $project->image);
+            }
         }
+
+
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
             $setImage = 'storage/'.$requestData['image'];
             $img = Image::make($setImage)->resize(970, 570)->save($setImage);
+        }else{
+            $requestData['image'] = $request->old_image;
         }
         if ($request->hasFile('thumbnail')) {
             $requestData['thumbnail'] = $request->file('thumbnail')->store('uploads', 'public');
             $setImage = 'storage/'.$requestData['thumbnail'];
             $img = Image::make($setImage)->resize(370, 470)->save($setImage);
+        }else{
+            $requestData['thumbnail'] = $request->old_thumbnail;
         }
         $requestData['slug'] = str_slug($request->header);
         $project->update($requestData);

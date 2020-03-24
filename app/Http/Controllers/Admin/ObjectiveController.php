@@ -84,13 +84,18 @@ class ObjectiveController extends Controller
 		]);
         $requestData = $request->all();
         $objective = Objective::findOrFail($id);
-        if (!$request->old_image='') {
-            Storage::delete('public/' . $objective->image);
+        if ($request->hasFile('image')) {
+            if (!$request->old_image='') {
+                Storage::delete('public/' . $objective->image);
+            }
         }
+
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
             $setImage = 'storage/'.$requestData['image'];
             $img = Image::make($setImage)->resize(470, 570)->save($setImage);
+        }else{
+            $requestData['image'] = $request->old_image;
         }
         $objective->update($requestData);
 

@@ -104,13 +104,18 @@ class OurTeamController extends Controller
 		]);
         $requestData = $request->all();
         $our_team = OurTeam::findOrFail($id);
-        if (!$request->old_image='') {
-            Storage::delete('public/' . $our_team->image);
+        if ($request->hasFile('image')) {
+            if (!$request->old_image='') {
+                Storage::delete('public/' . $our_team->image);
+            }
         }
+
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
             $setImage = 'storage/'.$requestData['image'];
             $img = Image::make($setImage)->resize(270, 470)->save($setImage);
+        }else{
+            $requestData['image'] = $request->old_image;
         }
         $our_team->update($requestData);
 

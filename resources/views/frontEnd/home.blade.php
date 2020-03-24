@@ -237,7 +237,7 @@
 								<img src="{{asset(Storage::url($item->thumbnail))}}" alt="" />
 								<div class="overlay-box">
 									<div class="overlay-inner">
-										<div class="title">Corporate</div>
+										<div class="title">{{App\Project::find($item->category_id)->category->name}}</div>
 										<h4><a href="{{ isset($item->link) ? $item->link : 'javascript:void(0)' }}">{{$item->header}}</a></h4>
 										{{-- <div class="social-box">
 											<a href="#" class="fa fa-facebook"></a>

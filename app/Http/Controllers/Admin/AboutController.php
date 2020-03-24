@@ -88,13 +88,18 @@ class AboutController extends Controller
 		]);
         $requestData = $request->all();
         $about = About::findOrFail($id);
-        if (!$request->old_image='') {
-            Storage::delete('public/' . $about->image);
+        if ($request->hasFile('image')) {
+            if (!$request->old_image='') {
+                Storage::delete('public/' . $about->image);
+            }
         }
+
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
             $setImage = 'storage/'.$requestData['image'];
             $img = Image::make($setImage)->resize(470, 570)->save($setImage);
+        }else{
+            $requestData['image'] = $request->old_image;
         }
         $about->update($requestData);
 

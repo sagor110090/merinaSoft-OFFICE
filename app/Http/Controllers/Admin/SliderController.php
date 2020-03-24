@@ -102,13 +102,18 @@ class SliderController extends Controller
 		]);
         $requestData = $request->all();
         $slider = Slider::findOrFail($id);
-        if (!$request->old_image='') {
-            Storage::delete('public/' . $slider->image);
+
+        if ($request->hasFile('image')) {
+            if (!$request->old_image='') {
+                Storage::delete('public/' . $slider->image);
+            }
         }
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
             $setImage = 'storage/'.$requestData['image'];
             $img = Image::make($setImage)->resize(1920, 1000)->save($setImage);
+        }else{
+            $requestData['image'] = $request->old_image;
         }
         $slider->update($requestData);
 

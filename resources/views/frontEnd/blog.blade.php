@@ -1,4 +1,4 @@
-@extends('frontEnd.layouts.app',['pageTitle' => __('About')])
+@extends('frontEnd.layouts.app',['pageTitle' => __('Blog')])
 @section('content')
 
  <!--Page Title-->

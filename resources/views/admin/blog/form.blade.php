@@ -25,12 +25,14 @@
 </div>
 <div class="form-group {{ $errors->has('thumbnail') ? 'has-error' : ''}}">
     <label for="thumbnail" class="control-label">{{ __('Thumbnail') }}</label>
-    <input class="form-control" name="thumbnail" type="file" id="thumbnail" value="{{ isset($blog->thumbnail) ? $blog->thumbnail : ''}}" required>
+    <input class="form-control" name="thumbnail" type="file" id="thumbnail" value="{{ isset($blog->thumbnail) ? $blog->thumbnail : ''}}">
+    <input type='text'  name="old_thumbnail" value="{{ isset($blog->thumbnail) ? $blog->thumbnail : ''}}" />
     {!! $errors->first('thumbnail', '<p class="text-danger">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('image') ? 'has-error' : ''}}">
     <label for="image" class="control-label">{{ __('Image') }}</label>
-    <input class="form-control" name="image" type="file" id="image" value="{{ isset($blog->image) ? $blog->image : ''}}" required>
+    <input class="form-control" name="image" type="file" id="image" value="{{ isset($blog->image) ? $blog->image : ''}}">
+    <input type='text'  name="old_image" value="{{ isset($blog->image) ? $blog->image : ''}}" />
     {!! $errors->first('image', '<p class="text-danger">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('blog_category_id') ? 'has-error' : ''}}">
@@ -38,7 +40,12 @@
     <select name="blog_category_id" class="form-control selectpicker">
         <option value="blog_category_id">Select blog_category_id</option>
         @foreach (Helpers::findAll('blog_categories') as $item)
-    <option value="{{$item->id}}">{{$item->name}}</option>
+    {{-- <option value="{{$item->id}}">{{$item->name}}</option> --}}
+            <option value="{{$item->id}}" @if(isset($blog->id))
+                @if($blog->blog_category_id  == $item->id) selected @endif
+                @endif>
+                {{$item->name}}
+            </option>
         @endforeach
     </select>
     {{-- <input class="form-control" name="blog_category_id" type="text" id="blog_category_id" value="{{ isset($blog->blog_category_id) ? $blog->blog_category_id : ''}}"

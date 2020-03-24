@@ -209,8 +209,8 @@
                             </div>
 
                             <div class="btn-box">
-                                <a href="{{ asset('frontEnd') }}/#" class="theme-btn btn-style-one"><span
-                                        class="txt">Subscribe Now</span></a>
+                                <a href="javascrip:void(0)" class="theme-btn btn-style-one"><span
+                                        class="txt" id="subscribe">Subscribe Now</span></a>
                             </div>
 
                         </div>
@@ -386,7 +386,7 @@
                             <ul class="footer-nav">
                                 <li><a href="{{ url('/') }}">Home</a></li>
                                 <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                                <li><a href="javascript:void(0)">Contributor</a></li>
+                                <li><a href="javascript:void(0)" id="contributor">Contributor</a></li>
                                 <li><a href="javascript:void(0)">Legals</a></li>
                                 <li><a href="{{ url('/contacts') }}">Contact</a></li>
                             </ul>
@@ -482,6 +482,39 @@
     </div>
     <!-- End Header Search -->
 
+
+    {{-- Popup Model --}}
+    <!-- Modal -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1" role="dialog"
+    aria-labelledby="subscribeModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{{url('/newsletter')}}">
+                    {{csrf_field()}}
+                    <fieldset>
+                        <div class="form-group">
+                            <input class="form-control" type="email" name="email" value=""
+                                placeholder="Enter your email address ....." required="">
+                            <button type="submit" class="btn btn-secondary">Submit<span
+                                    class="txt flaticon-send"></span></button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- popup model end --}}
+
     <script src="{{ asset('frontEnd') }}/js/jquery.js"></script>
     <script src="{{ asset('frontEnd') }}/js/popper.min.js"></script>
     <script src="{{ asset('frontEnd') }}/js/bootstrap.min.js"></script>
@@ -513,6 +546,15 @@
                     document.getElementById("error").style.color = "red";
                 $('#newsModal').modal('show');
             }
+
+            $('#contributor').click(function(){
+                document.getElementById("error").innerHTML = "Name: Raihan Uddin"+"<br />"+"Designation: Web Developer "+"<br />"+"Email: raihansarkar@gmail.com "+"<br />"+"Mobile: +8801849609902 "+"<br />"+"Linkedin: linkedin.com/in/raihan-uddin-026b5413a"
+                +"<br /><br />"+"Name: Mehedi Hasan Sagor"+"<br />"+"Designation: Web Developer "+"<br />"+"Mobile: +880 1797715948 "+"<br />"+"Linkedin: linkedin.com/in/raihan-uddin-026b5413a";
+                $('#newsModal').modal('show');
+            });
+            $('#subscribe').click(function(){
+                $('#subscribeModal').modal('show');
+            });
         });
     </script>
 </body>

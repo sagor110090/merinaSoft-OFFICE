@@ -97,13 +97,18 @@ class ServiceController extends Controller
 		]);
         $requestData = $request->all();
         $service = Service::findOrFail($id);
-        if (!$request->old_image='') {
-            Storage::delete('public/' . $service->image);
+        if ($request->hasFile('image')) {
+            if (!$request->old_image='') {
+                Storage::delete('public/' . $service->image);
+            }
         }
+
         if ($request->hasFile('image')) {
             $requestData['image'] = $request->file('image')->store('uploads', 'public');
             $setImage = 'storage/'.$requestData['image'];
             $img = Image::make($setImage)->resize(770, 400)->save($setImage);
+        }else{
+            $requestData['image'] = $request->old_image;
         }
         $requestData['slug'] = str_slug($request->header);
         $service->update($requestData);

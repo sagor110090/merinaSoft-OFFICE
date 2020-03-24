@@ -16,5 +16,10 @@ class Category extends Model
     protected $primaryKey = 'id';
 
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name','slug'];
+
+    public function projectCatagory()
+    {
+        return $this->hasMany('App\Project','blog_category_id');
+    }
 }
